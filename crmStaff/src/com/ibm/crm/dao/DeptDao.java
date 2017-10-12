@@ -1,5 +1,6 @@
 package com.ibm.crm.dao;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -35,6 +36,26 @@ public class DeptDao extends GenericHibernateDao<Crmdepartment, Integer> impleme
 		pb = super.findByPage(hql, pageCode, pageSize, params);
 		
 		return pb;
+=======
+import java.util.List;
+
+import com.ibm.crm.base.GenericHibernateDao;
+import com.ibm.crm.base.PageBean;
+import com.ibm.vo.Crmdepartment;
+
+public class DeptDao extends GenericHibernateDao<Crmdepartment, Integer> implements IDeptDao {
+
+	@Override
+	public Crmdepartment findByDeptId(int depId) {
+		// TODO Auto-generated method stub
+		return super.findById(depId);
+	}
+
+	@Override
+	public Crmdepartment updateDept(Crmdepartment crmDepartment) {
+		// TODO Auto-generated method stub
+		return super.update(crmDepartment);
+>>>>>>> 795f20e72cac21aa9ffa1b102163771bd621ac0b
 	}
 
 	
