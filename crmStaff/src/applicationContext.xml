@@ -27,10 +27,21 @@
 		</property>
 		<property name="mappingResources">
 			<list>
-				<value>com/ibm/crm/vo/Crmstaff.hbm.xml</value></list>
+				<value>com/ibm/crm/vo/Crmstaff.hbm.xml</value>
+				<value>com/ibm/crm/vo/Crmdepartment.hbm.xml</value>
+				<value>com/ibm/crm/vo/Crmpost.hbm.xml</value></list>
 		</property></bean>
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="deptDao" class="com.ibm.crm.dao.DeptDao">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="deptBiz" class="com.ibm.crm.biz.DeptBiz">
+	  <property name="deptDao" ref="deptDao"></property>
+	</bean>
+	<bean id="deptAction" class="com.ibm.crm.action.DeptAction">
+	  <property name="deptBiz" ref="deptBiz"></property>
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager" /></beans>

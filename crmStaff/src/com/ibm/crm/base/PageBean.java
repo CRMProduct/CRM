@@ -3,6 +3,8 @@ package com.ibm.crm.base;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ibm.crm.vo.Crmdepartment;
+
 
 public class PageBean {
 
@@ -10,12 +12,12 @@ public class PageBean {
 	private int pageSize;
 	private int allPages;
 	private int allCount;
-	List list = new ArrayList();
+	List<Crmdepartment> list = new ArrayList<Crmdepartment>();
 	public PageBean() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public PageBean(int pageCode, int pageSize, int allPages, int allCount, List list) {
+	public PageBean(int pageCode, int pageSize, int allPages, int allCount, List<Crmdepartment> list) {
 		super();
 		this.pageCode = pageCode;
 		this.pageSize = pageSize;
@@ -47,10 +49,10 @@ public class PageBean {
 	public void setAllCount(int allCount) {
 		this.allCount = allCount;
 	}
-	public List getList() {
+	public List<Crmdepartment> getList() {
 		return list;
 	}
-	public void setList(List list) {
+	public void setList(List<Crmdepartment> list) {
 		this.list = list;
 	}
 	
