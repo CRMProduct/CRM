@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+<package name="post" namespace="/" extends="struts-default">
+<action name="*_*" class="com.ibm.crm.action.{1}Action" method="{2}">
+<result name="findSuccess">jsp/updatePost.jsp</result>
+<result name="updateSuccess" type="chain">Post_query</result>
+<result name="updateError">jsp/update.jsp</result>
+</action>
+
+
+
+
+</package>
+
+
+</struts>    
