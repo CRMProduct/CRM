@@ -28,21 +28,14 @@
 		<property name="mappingResources">
 			<list>
 				<value>com/ibm/crm/vo/Crmstaff.hbm.xml</value>
-<<<<<<< HEAD
 				<value>com/ibm/crm/vo/Crmdepartment.hbm.xml</value>
 				<value>com/ibm/crm/vo/Crmpost.hbm.xml</value></list>
-=======
-				<value>com/ibm/vo/Crmpost.hbm.xml</value>
-				<value>com/ibm/vo/Crmdepartment.hbm.xml</value>
-				<value>com/ibm/vo/Crmstaff.hbm.xml</value></list>
->>>>>>> 795f20e72cac21aa9ffa1b102163771bd621ac0b
 		</property></bean>
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	<bean id="deptDao" class="com.ibm.crm.dao.DeptDao">
-<<<<<<< HEAD
 	  <property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean id="deptBiz" class="com.ibm.crm.biz.DeptBiz">
@@ -50,11 +43,5 @@
 	</bean>
 	<bean id="deptAction" class="com.ibm.crm.action.DeptAction">
 	  <property name="deptBiz" ref="deptBiz"></property>
-=======
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	<bean id="deptBiz" class="com.ibm.crm.biz.DeptBiz">
-		<property name="deptDao" ref="deptDao"></property>
->>>>>>> 795f20e72cac21aa9ffa1b102163771bd621ac0b
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager" /></beans>
