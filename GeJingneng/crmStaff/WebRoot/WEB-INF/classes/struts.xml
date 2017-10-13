@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-  <package name="dept" namespace="/" extends="struts-default">
-    <action name="*_*" class="com.ibm.crm.action.{1}Action" method="{2}">
-      <!-- 分页 -->
-      <result name="querySuccess">/jsp/deptPage.jsp</result>
-    </action>
-  </package>
+	<package name="dept" namespace="/" extends="struts-default">
+		<action name="*_*" class="com.ibm.crm.action.{1}Action" method="{2}">
+			<!-- 登录 -->
+            <result name="loginSuccess">/jsp/home.jsp</result>
+			<!-- 分页 -->
+			<result name="querySuccess">/jsp/deptPage.jsp</result>
+			<!-- 添加部门 -->
+			<result name="registSuccess" type="chain">Dept_query</result>
+			<result name="registError">/jsp/regist.jsp</result>
+			<!-- 查询 -->
+			<result name="findSuccess">/jsp/update.jsp</result>
+			<!-- 更新 -->
+			<result name="updateSuccess" type="chain">Dept_query</result>
+		</action>
+	</package>
 
 </struts>    
