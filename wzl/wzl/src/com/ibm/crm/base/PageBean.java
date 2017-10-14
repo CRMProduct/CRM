@@ -3,7 +3,7 @@ package com.ibm.crm.base;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ibm.crm.vo.Crmdepartment;
+import com.ibm.vo.Crmdepartment;
 
 
 public class PageBean {

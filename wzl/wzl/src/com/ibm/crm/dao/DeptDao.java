@@ -8,7 +8,7 @@ import java.util.Set;
 
 import com.ibm.crm.base.GenericHibernateDao;
 import com.ibm.crm.base.PageBean;
-import com.ibm.crm.vo.Crmdepartment;
+import com.ibm.vo.Crmdepartment;
 
 public class DeptDao extends GenericHibernateDao<Crmdepartment, Integer> implements IDeptDao {
 
@@ -33,35 +33,22 @@ public class DeptDao extends GenericHibernateDao<Crmdepartment, Integer> impleme
 			params = list.toArray();
 		}
 		pb = super.findByPage(hql, pageCode, pageSize, params);
-
+		
 		return pb;
 	}
 
-	//添加部门
-	@Override
-	public boolean addDepartment(Crmdepartment department) {
-		boolean flag = false;
-		Crmdepartment addDepartment = super.create(department);
-		if(addDepartment!=null){
-			flag=true;
-		}
-		return flag;
-	}
-
-	//根据ID查询
 	@Override
 	public Crmdepartment findById(int depId) {
 		// TODO Auto-generated method stub
 		return super.findById(depId);
 	}
 
-	//更新部门信息
 	@Override
 	public Crmdepartment updateDept(Crmdepartment crmdepartment) {
 		// TODO Auto-generated method stub
 		return super.update(crmdepartment);
 	}
-
+	
 	//查询所有部门
 	@Override
 	public List<Crmdepartment> findAllDept() {
@@ -69,4 +56,5 @@ public class DeptDao extends GenericHibernateDao<Crmdepartment, Integer> impleme
 		return super.findAll();
 	}
 
+	
 }

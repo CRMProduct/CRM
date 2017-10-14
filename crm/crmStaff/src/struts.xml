@@ -4,7 +4,7 @@
 	<package name="dept" namespace="/" extends="struts-default">
 		<action name="*_*" class="com.ibm.crm.action.{1}Action" method="{2}">
 			<!-- 登录 -->
-            <result name="loginSuccess">/jsp/home.jsp</result>
+			<result name="loginSuccess">/jsp/home.jsp</result>
 			<!-- 分页 -->
 			<result name="querySuccess">/jsp/deptPage.jsp</result>
 			<!-- 添加部门 -->
@@ -14,6 +14,17 @@
 			<result name="findSuccess">/jsp/update.jsp</result>
 			<!-- 更新 -->
 			<result name="updateSuccess" type="chain">Dept_query</result>
+
+			<!-- 添加职务 -->
+			<result name="addPostSuccess" type="chain">Post_query</result>
+			<!-- 查询所有部门 -->
+			<result name="findAllSuccess">/jsp/post/addPost.jsp</result>
+			<!-- 职务分页 -->
+			<result name="queryPostSuccess">/jsp/post/searchPost.jsp</result>
+			<!-- 职务查询 -->
+			<result name="findSuccess">/jsp/post/updatePost.jsp</result>
+			<!-- 职务更新 -->
+			<result name="updateSuccess" type="chain">Post_query</result>
 		</action>
 	</package>
 
