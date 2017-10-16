@@ -29,7 +29,9 @@
 			<list>
 				<value>com/ibm/crm/vo/Crmdepartment.hbm.xml</value>
 				<value>com/ibm/crm/vo/Crmstaff.hbm.xml</value>
-				<value>com/ibm/crm/vo/Crmpost.hbm.xml</value></list>
+				<value>com/ibm/crm/vo/Crmpost.hbm.xml</value>
+				<value>com/ibm/crm/vo/Crmclass.hbm.xml</value>
+				<value>com/ibm/crm/vo/Crmcoursetype.hbm.xml</value></list>
 		</property></bean>
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
@@ -46,7 +48,30 @@
 	</bean>
 	
 	<bean id="postaction" class="com.ibm.crm.action.PostAction">
-	<property name="postBiz" ref="postBiz"></property>
+	<property name="postBiz" ref="postBiz"></property> 
+	</bean>
+	<bean id="courseDao" class="com.ibm.crm.dao.CourseDao" >
+	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="courseBiz" class="com.ibm.crm.biz.CourseBiz">
+    <property name="courseDao" ref="courseDao"></property>
+	</bean>
+	
+	<bean id="courseAction" class="com.ibm.crm.action.CourseAction">
+	<property name="courseBiz" ref="courseBiz"></property>
+	</bean>
+	<bean id="classDao" class="com.ibm.crm.dao.ClassDao" >
+	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="classBiz" class="com.ibm.crm.biz.ClassBiz">
+    <property name="classDao" ref="classDao"></property>
+	</bean>
+	
+	<bean id="classAction" class="com.ibm.crm.action.ClassAction">
+	<property name="classBiz" ref="classBiz"></property>
+	<property name="courseBiz" ref="courseBiz"></property>
 	</bean>
 	
 	</beans>

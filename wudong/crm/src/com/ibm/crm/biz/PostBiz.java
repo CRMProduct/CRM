@@ -17,7 +17,6 @@ public class PostBiz implements IPostBiz {
 	@Override
 	public boolean registPost(Crmpost crmpost) {
 		// TODO Auto-generated method stub
-		//System.out.println(crmpost.getPostName());
 		return postDao.addPost(crmpost);
 		
 	}

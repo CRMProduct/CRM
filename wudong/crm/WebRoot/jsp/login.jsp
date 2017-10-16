@@ -16,9 +16,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	
 <link type="text/css" rel="stylesheet" href="../css/style.css">
   </head>
  <body>
@@ -33,6 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <input type="submit" value="登录" style="background-color: white;color: red">
               <input type="reset" value="重置" style="background-color: white;color: red">
         </form>
+        <br><br>
     </div>
     </center>
   </body>

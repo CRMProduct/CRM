@@ -41,8 +41,6 @@ public class PostAction extends ActionSupport implements ModelDriven<Crmpost>, R
 
 
 	public String addPost() throws Exception {
-		
-		System.out.println(crmpost.getPostName());
 		if (postBiz.registPost(crmpost)) {
 			return "addPostSuccess";
 		} else {

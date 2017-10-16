@@ -71,7 +71,7 @@ public abstract class GenericHibernateDao<T extends Serializable, ID extends Ser
 	@SuppressWarnings("unchecked")
 	public T findById(ID id) {
 		Session session = sessionFactory.getCurrentSession();
-		T entity = (T) session.load(persistentClass, id);
+		T entity = (T) session.get(persistentClass, id);
 		return entity;
 	}
 	// 分页查询
@@ -99,7 +99,6 @@ public abstract class GenericHibernateDao<T extends Serializable, ID extends Ser
 		q.setFirstResult((pageCode - 1) * pageSize);
 		List crmStaff = q.list();
 		pb.setList(crmStaff);
-		//
 		return pb;
 	}
 	
