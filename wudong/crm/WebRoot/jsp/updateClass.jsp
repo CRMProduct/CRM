@@ -30,9 +30,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <center>
  班级名称&emsp;：<input type="text" name="className" value="${crmclass.className }" class="input"><br><br>
  所属类别&emsp;：<select name="courseTypeId" class="input">
-        <option >---请选择---</option>
+        <option value="${crmclass.crmcoursetype.courseTypeId }" >${crmclass.crmcoursetype.courseName }</option>
         <c:forEach var="course" items="${course }">
-        <option value="courseTypeId">${course.courseName }</option>
+        <option value="${course.courseTypeId }">${course.courseName }</option>
         </c:forEach>
         </select>       
  <br><br>

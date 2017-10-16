@@ -19,7 +19,7 @@ public class ClassAction extends ActionSupport implements ModelDriven<Crmclass>,
 	private int pageCode = 1;
 	IClassBiz classBiz;
 	ICourseBiz courseBiz;
-	/*int courseTypeId;
+	int courseTypeId;
 	
 	public int getCourseTypeId() {
 		return courseTypeId;
@@ -27,7 +27,7 @@ public class ClassAction extends ActionSupport implements ModelDriven<Crmclass>,
 
 	public void setCourseTypeId(int courseTypeId) {
 		this.courseTypeId = courseTypeId;
-	}*/
+	}
 
 	public void setCourseBiz(ICourseBiz courseBiz) {
 		this.courseBiz = courseBiz;
@@ -88,9 +88,8 @@ public class ClassAction extends ActionSupport implements ModelDriven<Crmclass>,
 	}
 
 	public String updateClass() throws Exception {
-		/*System.out.println("11"+courseTypeId);
-		Crmcoursetype cc = courseBiz.checkById(courseTypeId);*/
-		//crmclass.setCrmcoursetype(cc);
+		Crmcoursetype cc = courseBiz.checkById(courseTypeId);
+		crmclass.setCrmcoursetype(cc);
 		if (classBiz.modifyClass(crmclass)) {
 			return "updateClassSuccess";
 		} else {
