@@ -47,14 +47,14 @@ public class DeptAction extends ActionSupport implements ModelDriven<Crmdepartme
 		Map map = (Map)request.get("params");
 		PageBean pb = deptBiz.queryByPage(pageCode, ApplicationContext.pageSize, map);
 		request.put("pageBean", pb);
-		return "querySuccess";
+		return "queryDeptSuccess";
 	}
 	//添加部门
 	public String regist() throws Exception {
 		if(deptBiz.registDepartment(crmDepartment)){
-			return"registSuccess";
+			return"registDeptSuccess";
 		}
-		return "registError";
+		return "registDeptError";
 	}
 
 	//登录
@@ -67,7 +67,7 @@ public class DeptAction extends ActionSupport implements ModelDriven<Crmdepartme
 		// TODO Auto-generated method stub
 		Crmdepartment findDepartment = deptBiz.findById(crmDepartment.getDepId());
 		request.put("crmDepartment", findDepartment);
-		return "findSuccess";
+		return "findDeptSuccess";
 	}
 	
 	//更新部门信息
@@ -75,9 +75,9 @@ public class DeptAction extends ActionSupport implements ModelDriven<Crmdepartme
 		// TODO Auto-generated method stub
 		Crmdepartment updateDepartment = deptBiz.modifyDept(crmDepartment);
 		if(updateDepartment != null){
-			return "updateSuccess";
+			return "updateDeptSuccess";
 		}else{
-			return "updateError";
+			return "updateDeptError";
 		}
 	}
 }

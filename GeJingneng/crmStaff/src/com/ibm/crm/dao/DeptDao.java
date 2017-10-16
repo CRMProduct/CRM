@@ -47,7 +47,7 @@ public class DeptDao extends GenericHibernateDao<Crmdepartment, Integer> impleme
 		}
 		return flag;
 	}
-	
+
 	//根据ID查询
 	@Override
 	public Crmdepartment findById(int depId) {
@@ -60,6 +60,13 @@ public class DeptDao extends GenericHibernateDao<Crmdepartment, Integer> impleme
 	public Crmdepartment updateDept(Crmdepartment crmdepartment) {
 		// TODO Auto-generated method stub
 		return super.update(crmdepartment);
+	}
+
+	//查询所有部门
+	@Override
+	public List<Crmdepartment> findAllDept() {
+		// TODO Auto-generated method stub
+		return super.findAll();
 	}
 
 }
