@@ -1,8 +1,7 @@
 package com.ibm.crm.biz;
 
+import java.util.List;
 import java.util.Map;
-
-import org.springframework.transaction.annotation.Transactional;
 
 import com.ibm.crm.base.PageBean;
 import com.ibm.crm.vo.Crmdepartment;
@@ -17,5 +16,6 @@ public interface IDeptBiz {
 	public Crmdepartment findById(int depId);
 	//更新部门信息
 	public Crmdepartment modifyDept(Crmdepartment crmdepartment);
-	
+	// 查询所有部门信息
+	public List<Crmdepartment> findAllDept();
 }

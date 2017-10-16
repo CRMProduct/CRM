@@ -61,8 +61,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <tr><td>
   <font style=" font-size:13px">人力资源部</font><br>
   <a href="Dept_query" style="text-decoration: none;">&nbsp;&nbsp;&nbsp;&nbsp;<font style=" font-size: 9px">部门管理</font></a><br>
-  <a href="" style="text-decoration: none;">&nbsp;&nbsp;&nbsp;&nbsp;<font style=" font-size: 9px">职务管理</font></a><br>
-  <a href="" style="text-decoration: none;">&nbsp;&nbsp;&nbsp;&nbsp;<font style=" font-size: 9px">员工管理</font></a><br>
+  <a href="Post_query" style="text-decoration: none;">&nbsp;&nbsp;&nbsp;&nbsp;<font style=" font-size: 9px">职务管理</font></a><br>
+  <a href="Staff_query" style="text-decoration: none;">&nbsp;&nbsp;&nbsp;&nbsp;<font style=" font-size: 9px">员工管理</font></a><br>
   </td></tr>
   
   </table>
