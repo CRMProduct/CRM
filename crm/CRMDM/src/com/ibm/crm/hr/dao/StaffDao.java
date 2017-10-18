@@ -1,4 +1,4 @@
-package com.ibm.crm.dao;
+package com.ibm.crm.hr.dao;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,10 +8,37 @@ import java.util.Set;
 
 import com.ibm.crm.base.GenericHibernateDao;
 import com.ibm.crm.base.PageBean;
-import com.ibm.crm.vo.Crmstaff;
+import com.ibm.crm.pojo.Crmstaff;
 
 public class StaffDao extends GenericHibernateDao<Crmstaff, Integer> implements IStaffDao {
 
+	
+	@Override
+	public boolean add(Crmstaff crmStaff) {
+		// TODO Auto-generated method stub
+		boolean flag = false;
+		if(super.create(crmStaff) != null){
+			flag = true;
+		}
+		return flag;
+	}
+
+	@Override
+	public boolean updateStaff(Crmstaff crmStaff) {
+		// TODO Auto-generated method stub
+		boolean flag = false;
+		if(super.update(crmStaff) != null){
+			flag = true;
+		}
+		return flag;
+	}
+
+	@Override
+	public Crmstaff findStaffById(int staffId) {
+		// TODO Auto-generated method stub
+		return super.findById(staffId);
+	}
+	
 	@Override
 	public PageBean findByPage(int pageCode, int pageSize, Map map) {
 		// TODO Auto-generated method stub
@@ -43,6 +70,4 @@ public class StaffDao extends GenericHibernateDao<Crmstaff, Integer> implements 
 
 		return pb;
 	}
-
-
 }
