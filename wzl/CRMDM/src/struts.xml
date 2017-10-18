@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="dept" namespace="/" extends="struts-default">
+		<action name="*_*" class="com.ibm.crm.action.{1}Action" method="{2}">
+			<!-- 登录 -->
+			<result name="loginSuccess">/jsp/dept/home.jsp</result>
+			<!-- 分页 -->
+			<result name="queryDeptSuccess">/jsp/dept/deptPage.jsp</result>
+			<!-- 添加部门 -->
+			<result name="registDeptSuccess" type="chain">Dept_query</result>
+			<result name="registDeptError">/jsp/dept/regist.jsp</result>
+			<!-- 查询部门 -->
+			<result name="findDeptSuccess">/jsp/dept/update.jsp</result>
+			<!-- 更新部门 -->
+			<result name="updateDeptSuccess" type="chain">Dept_query</result>
+
+			<!-- 添加职务 -->
+			<result name="addPostSuccess" type="chain">Post_query</result>
+			<!-- 查询所有部门 -->
+			<result name="findAllSuccess">/jsp/post/addPost.jsp</result>
+			<!-- 职务分页 -->
+			<result name="queryPostSuccess">/jsp/post/searchPost.jsp</result>
+			<!-- 职务查询 -->
+			<result name="findPostSuccess">/jsp/post/updatePost.jsp</result>
+			<!-- 职务更新 -->
+			<result name="updatePostSuccess" type="chain">Post_query</result>
+			
+			<!-- 添加员工 -->
+			<result name="addStaffSuccess">index.jsp</result>
+			<!-- 查询所有职务 -->
+			<result name="findAllPostSuccess">/jsp/staff/addStaff.jsp</result>
+			<!-- 员工分页 -->
+			<result name="queryStaffSuccess">jsp/staff/staffPage.jsp</result>
+
+			<!-- 课程分页 -->
+			<result name="queryCourseSuccess">/jsp/course/coursePage.jsp</result>
+			<!-- 添加课程 -->
+			<result name="addCourseSuccess" type="chain">Course_queryCourse
+			</result>
+			<!-- 查询课程 -->
+			<result name="findCourseSuccess">/jsp/course/updateCourse.jsp</result>
+			<!-- 更新课程 -->
+			<result name="updateCourseSuccess" type="chain">Course_queryCourse
+			</result>
+
+			<!-- 班级分页 -->
+			<result name="queryClassSuccess">/jsp/class/classPage.jsp</result>
+			<!-- 添加班级 -->
+			<result name="addClassSuccess" type="chain">Class_queryClass</result>
+			<!-- 查询班级 -->
+			<result name="findClassSuccess">/jsp/class/updateClass.jsp</result>
+			<!-- 更新班级 -->
+			<result name="updateClassSuccess" type="chain">Class_queryClass
+			</result>
+
+            <!-- 咨询分页 -->
+			<result name="queryReferSuccess">jsp/refer/referPage.jsp </result>
+			<!-- 查询咨询学生 -->
+			<result name="findReferStudent1Success">jsp/refer/queryReferStudent.jsp</result>
+			<result name="findReferStudent2Success">jsp/refer/updateReferStudent.jsp</result>
+			<!-- 更新咨询学生信息 -->
+			<result name="updateReferStudentSuccess" type="chain">Refer_queryRefer</result>
+			
+			<!-- 学生的分页 -->
+			<result name="queryStudentSuccess">/jsp/student/studentPage.jsp</result>
+			<!-- 注册学生 -->
+			<result name="registStudentSuccess" type="chain">Student_query</result>
+			<result name="registStudentError" type="redirect">/jsp/student/regist.jsp</result>
+			<!-- 查询学生 -->
+			<result name="findStudentSuccess">/jsp/student/update.jsp</result>
+			<!-- 更新学生信息 -->
+			<result name="updateStudentSuccess" type="chain">Student_query</result>
+			<result name="updateStudentError">/jsp/student/update.jsp</result>
+			
+			<!-- 就业信息分页 -->
+			<result name="queryGraduateSuccess">jsp/graduate/graduatePage.jsp</result>
+			<!-- 添加就业信息 -->
+			<result name="addGraduateSuccess" type="chain">Graduate_queryGraduate</result>
+			
+			<!-- 添加员工 -->
+			<result name="addStaffSuccess" type="chain">Staff_all</result>
+			<!-- 查询所有职务 -->
+			<result name="findAllPostSuccess">/jsp/staff/addStaff.jsp</result>
+			<!-- 分页 -->
+			<result name="queryStaffSuccess">/jsp/staff/staffPage.jsp</result>
+			<!-- 查询 -->
+			<result name="findStaffSuccess">jsp/staff/updateStaff.jsp</result>
+			<!-- 更新 -->
+			<result name="updateStaffSuccess" type="chain">Staff_all</result>
+		</action>
+	</package>
+
+</struts>    

@@ -6,9 +6,7 @@ import org.apache.struts2.interceptor.RequestAware;
 
 import com.ibm.crm.base.ApplicationContext;
 import com.ibm.crm.base.PageBean;
-import com.ibm.crm.biz.IClassBiz;
 import com.ibm.crm.biz.IGraduateBiz;
-import com.ibm.crm.biz.IStudentBiz;
 import com.ibm.crm.vo.Crmclass;
 import com.ibm.crm.vo.Crmgraduate;
 import com.ibm.crm.vo.Crmstudent;
@@ -17,8 +15,8 @@ import com.opensymphony.xwork2.ModelDriven;
 public class GraduateAction implements ModelDriven<Crmgraduate>,RequestAware {
 
 	IGraduateBiz graduateBiz;
-	IStudentBiz studentBiz;
-	IClassBiz classBiz;
+	/*IStudentBiz studentBiz;
+	IClassBiz classBiz;*/
 	int classId;
 	int studentId;
 	public int getClassId() {
@@ -36,14 +34,14 @@ public class GraduateAction implements ModelDriven<Crmgraduate>,RequestAware {
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
-
+/*
 	public void setStudentBiz(IStudentBiz studentBiz) {
 		this.studentBiz = studentBiz;
 	}
 
 	public void setClassBiz(IClassBiz classBiz) {
 		this.classBiz = classBiz;
-	}
+	}*/
 
 	Map<String, Object> request;
 	Crmgraduate crmGraduate = new Crmgraduate();
@@ -71,11 +69,11 @@ public class GraduateAction implements ModelDriven<Crmgraduate>,RequestAware {
 
 	//添加就业信息
 	public String addGraduate() throws Exception {
-		Crmclass cc = classBiz.findByClassId(classId);
+		/*Crmclass cc = classBiz.findByClassId(classId);
 		Crmstudent ct = studentBiz.findByStudentId(studentId);
 		System.out.println(classId+" "+studentId);
 		crmGraduate.setCrmclass(cc);
-		crmGraduate.setCrmstudent(ct);
+		crmGraduate.setCrmstudent(ct);*/
 		if (graduateBiz.regist(crmGraduate)) {
 			return "addGraduateSuccess";
 		} else{

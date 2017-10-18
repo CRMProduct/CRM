@@ -1,5 +1,6 @@
 package com.ibm.crm.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import com.ibm.crm.base.PageBean;
@@ -18,4 +19,8 @@ public interface IPostDao {
 
 	//添加
 	public boolean addPost(Crmpost crmpost);
+	
+	// 查询所有部门信息
+	public List<Crmpost> findAllPost();
+	
 }

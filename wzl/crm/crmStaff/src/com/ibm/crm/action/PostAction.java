@@ -65,7 +65,7 @@ public class PostAction implements RequestAware,ModelDriven<Crmpost>{
 		Map map = (Map) request.get("param");
 		PageBean pb = postBiz.queryByPage(pageCode, ApplicationContext.pageSize, map);
 
-		List<Crmpost> s = pb.getList();
+		/*List<Crmpost> s = pb.getList();
 		List<Crmpost> sNew = new ArrayList<Crmpost>();
 		Iterator<Crmpost> iter = s.iterator();
 
@@ -78,7 +78,7 @@ public class PostAction implements RequestAware,ModelDriven<Crmpost>{
 			sNew.add(cp);
 
 		}
-		pb.setList(sNew);
+		pb.setList(sNew);*/
 		request.put("pageBean", pb);
 		return "queryPostSuccess";
 	}

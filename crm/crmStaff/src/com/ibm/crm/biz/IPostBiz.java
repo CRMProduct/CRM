@@ -1,5 +1,6 @@
 package com.ibm.crm.biz;
 
+import java.util.List;
 import java.util.Map;
 
 import com.ibm.crm.base.PageBean;
@@ -18,4 +19,8 @@ public interface IPostBiz {
 
 	//添加
 	public boolean registPost(Crmpost crmpost);
+	
+
+	// 查询所有职务信息
+	public List<Crmpost> searchAllPost();
 }

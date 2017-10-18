@@ -1,5 +1,6 @@
 package com.ibm.crm.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import com.ibm.crm.base.GenericHibernateDao;
@@ -46,5 +47,11 @@ public class PostDao extends GenericHibernateDao<Crmpost, Integer> implements IP
 		}
 		return flag;
 	}
-
+	
+	//查询所有post
+	@Override
+	public List<Crmpost> findAllPost() {
+		// TODO Auto-generated method stub
+		return super.findAll();
+	}
 }

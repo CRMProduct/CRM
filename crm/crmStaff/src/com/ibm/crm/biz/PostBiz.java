@@ -1,5 +1,6 @@
 package com.ibm.crm.biz;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -46,5 +47,11 @@ public class PostBiz implements IPostBiz {
 		return postDao.addPost(crmpost);
 
 	}
-
+	
+	//查询所有post
+	@Override
+	public List<Crmpost> searchAllPost() {
+		// TODO Auto-generated method stub
+		return postDao.findAllPost();
+	}
 }
