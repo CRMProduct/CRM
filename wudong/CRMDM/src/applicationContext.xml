@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" xmlns:tx="http://www.springframework.org/schema/tx">
+
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="jdbc:mysql://localhost:3306/crm"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="123456"></property>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/ibm/crm/pojo/Crmpost.hbm.xml</value>
+				<value>com/ibm/crm/pojo/Crmdepartment.hbm.xml</value>
+				<value>com/ibm/crm/pojo/Crmstaff.hbm.xml</value>
+				<value>com/ibm/crm/pojo/Crmcoursetype.hbm.xml</value>
+				<value>com/ibm/crm/pojo/Crmrunoff.hbm.xml</value>
+				<value>com/ibm/crm/pojo/Crmfollow.hbm.xml</value>
+				<value>com/ibm/crm/pojo/Crmclass.hbm.xml</value>
+				<value>com/ibm/crm/pojo/Crmstudent.hbm.xml</value>
+				<value>com/ibm/crm/pojo/Crmgraduate.hbm.xml</value>
+				<value>com/ibm/crm/pojo/Crmstation.hbm.xml</value>
+				<value>com/ibm/crm/pojo/Crmrefer.hbm.xml</value></list>
+		</property></bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 人力资源部 -->
+	<bean id="deptDao" class="com.ibm.crm.hr.dao.DeptDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="deptBiz" class="com.ibm.crm.hr.biz.DeptBiz">
+		<property name="deptDao" ref="deptDao"></property>
+	</bean>
+	<bean id="deptAction" class="com.ibm.crm.action.DeptAction">
+		<property name="deptBiz" ref="deptBiz"></property>
+	</bean>
+	<bean id="postDao" class="com.ibm.crm.hr.dao.PostDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="postBiz" class="com.ibm.crm.hr.biz.PostBiz">
+		<property name="postDao" ref="postDao"></property>
+	</bean>
+	<bean id="postAction" class="com.ibm.crm.action.PostAction">
+		<property name="postBiz" ref="postBiz"></property>
+	</bean>
+	<bean id="postAction1" class="com.ibm.crm.action.PostAction">
+		<property name="deptBiz" ref="deptBiz"></property>
+	</bean>
+	<bean id="staffDao" class="com.ibm.crm.hr.dao.StaffDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="staffBiz" class="com.ibm.crm.hr.biz.StaffBiz">
+		<property name="staffDao" ref="staffDao"></property>
+	</bean>
+	<bean id="staffAction" class="com.ibm.crm.action.StaffAction">
+		<property name="staffBiz" ref="staffBiz"></property>
+	</bean>
+	<!-- 教学部 -->
+	<bean id="courseDao" class="com.ibm.crm.td.dao.CourseDao" >
+	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="courseBiz" class="com.ibm.crm.td.biz.CourseBiz">
+    <property name="courseDao" ref="courseDao"></property>
+	</bean>
+	<bean id="courseAction" class="com.ibm.crm.action.CourseAction">
+	<property name="courseBiz" ref="courseBiz"></property>
+	</bean>
+	<bean id="classDao" class="com.ibm.crm.td.dao.ClassDao" >
+	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="classBiz" class="com.ibm.crm.td.biz.ClassBiz">
+    <property name="classDao" ref="classDao"></property>
+	</bean>
+	<bean id="classAction" class="com.ibm.crm.action.ClassAction">
+	<property name="classBiz" ref="classBiz"></property>
+	<property name="courseBiz" ref="courseBiz"></property>
+	</bean>
+	<!-- 咨询部 -->
+	<bean id="referDao" class="com.ibm.crm.cond.dao.ReferDao">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!--referBiz-->
+	<bean id="referBiz" class="com.ibm.crm.cond.biz.ReferBiz">
+	<property name="referDao" ref="referDao"></property>
+	</bean>
+	<!--referAction-->
+	<bean id="referAction" class="com.ibm.crm.action.ReferAction">
+	<property name="referBiz" ref="referBiz"></property>
+	</bean>
+	<!-- 学工部 -->
+	<bean id="studentDao" class="com.ibm.crm.stu.dao.StudentDao">
+	    <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="studentBiz" class="com.ibm.crm.stu.biz.StudentBiz">
+	    <property name="studentDao" ref="studentDao"></property>
+	</bean>
+	<bean id="studentAction" class="com.ibm.crm.action.StudentAction">
+	    <property name="studentBiz" ref="studentBiz"></property>
+	</bean>
+	<!-- 就业部 -->
+	<bean id="graduateDao" class="com.ibm.crm.dole.dao.GraduateDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="graduateBiz" class="com.ibm.crm.dole.biz.GraduateBiz">
+		<property name="graduateDao" ref="graduateDao"></property>
+	</bean>
+	<bean id="graduateAction" class="com.ibm.crm.action.GraduateAction">
+		<property name="graduateBiz" ref="graduateBiz"></property>
+		<property name="studentBiz" ref="studentBiz"></property>
+		<property name="classBiz" ref="classBiz"></property>
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" /></beans>
