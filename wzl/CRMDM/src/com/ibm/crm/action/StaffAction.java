@@ -153,12 +153,17 @@ public class StaffAction implements ModelDriven<Crmstaff>,RequestAware {
 	//查询职务
 	public String find() throws Exception {
 		// TODO Auto-generated method stub
+		Crmstaff cs = staffBiz.searchById(crmStaff.getStaffId());
+		Crmpost cp = postBiz.checkById(cs.getCrmpost().getPostId());
+		Crmdepartment cd = deptBiz.findById(cp.getCrmdepartment().getDepId());
+		cp.setCrmdepartment(cd);
+		cs.setCrmpost(cp);
+		request.put("staff", cs);
+		
 		List<Crmpost> postList = postBiz.searchAllPost();
 		List<Crmdepartment> deptList = deptBiz.findAllDept();
 		request.put("dept", deptList);
 		request.put("post", postList);
-		Crmstaff cs = staffBiz.searchById(crmStaff.getStaffId());
-		request.put("staff", cs);
 		return "findStaffSuccess";
 
 	}

@@ -87,7 +87,7 @@
 			<!-- 查询 -->
 			<result name="findStaffSuccess">jsp/staff/updateStaff.jsp</result>
 			<!-- 更新 -->
-			<result name="updateStaffSuccess" type="chain">Staff_all</result>
+			<result name="updateStaffSuccess" type="chain">Staff_query</result>
 		</action>
 	</package>
 

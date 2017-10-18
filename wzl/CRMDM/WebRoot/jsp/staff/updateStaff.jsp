@@ -97,7 +97,7 @@
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;员&nbsp;工&nbsp;管&nbsp;理</h3>
 		</div>
 		<div style="position: relative; bottom: 0px;left: 80%">
-			<input type="submit" value="保存"> <a href=""><input
+			<input type="submit" value="保存"> <a href="Staff_query"><input
 				type="button" value="退回"></a>
 		</div>
 		<div style="margin-top: 30px">
