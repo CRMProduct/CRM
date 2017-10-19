@@ -31,8 +31,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;职&nbsp;务&nbsp;管&nbsp;理</h3>
 		</div>
 		<div style="position: relative; left: 80%">
-			<input type="submit" value="保存"> <a href="Post_query"><input
-				type="button" value="退回"></a>
+			<input type="submit" value="保存"> 
+			<input type="button" value="返回" onclick="javaScript:history.go(-1)">
 		</div>
 		<div style="margin-top: 30px">
 			<center>

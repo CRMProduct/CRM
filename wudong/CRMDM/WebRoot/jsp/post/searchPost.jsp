@@ -28,7 +28,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <div><h3 style=" background-color: #93C9FF; color: white;height: 30px;width: 80%px;position: relative;top: 30px"> 
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;职务管理</h3></div>
  <div style="position: relative; bottom: 0px;left: 80%">
- <a href="jsp/post/addPost.jsp" style="text-decoration: none;">添加</a>
+ <a href="Post_all" style="text-decoration: none;">添加</a>
+ <a href="jsp/home.jsp" style="text-decoration: none;">返回</a>
  </div><br>
  <center>
  <h4 align="left" style="position:relative;left: 100px;color: orange ">查询结果</h4><br>

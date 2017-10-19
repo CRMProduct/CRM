@@ -32,14 +32,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div style="background-color: #ABD1E7;">
   <h4 align="left" style="position:relative;left: 100px;color: orange ">查询结果</h4>
   <form action="Student_regist">
-  姓&emsp;&emsp;名&emsp;&emsp;：<input type="text" name="studentName" class="input"> <br>
+  姓&emsp;&emsp;名&emsp;&emsp;：<input type="text" name="studentName" value="${studentName }" class="input"> <br>
   性&emsp;&emsp;别&emsp;&emsp;：&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type="radio" name="gender" value="男">男
   &emsp;&emsp;&emsp;&emsp;&emsp;<input type="radio" name="gender" value="女"  >女<br>
    应付学费&emsp;&emsp;：<input type="text" name="mustTuition" class="input"> <br> 
    实付学费&emsp;&emsp;：<input type="text" name="actualTuition" class="input"><br>
-   身份证号&emsp;&emsp;：<input type="text" name="identity" class="input"> <br>
-   手机号码&emsp;&emsp;：<input type="text" name="telephone" class="input"><br>
-   Q&emsp;&nbsp;&nbsp;Q&emsp;号&emsp;：<input type="text" name="qq" class="input"> <br> 
+   身份证号&emsp;&emsp;：<input type="text" name="identity" value="${identity }" class="input"> <br>
+   手机号码&emsp;&emsp;：<input type="text" name="telephone" value="${telephone }" class="input"><br>
+   Q&emsp;&nbsp;&nbsp;Q&emsp;号&emsp;：<input type="text" name="qq" value="${qq }" class="input"> <br> 
    邮&emsp;&emsp;箱&emsp;&emsp;：<input type="text" name="email" class="input"><br>
    就读班级&emsp;&emsp;：类别：<select style="width: 75px"><option></option><option></option><option></option></select> 
                    班级：<select style="width: 75px"><option></option><option></option><option></option></select><br>

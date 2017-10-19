@@ -36,6 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  来&emsp;&emsp;源：<input type="text" name="source" value="${refer.source }" class="input"><br><br>
  备&emsp;&emsp;注：<input type="text" name="remark" value="${refer.remark }" class="input"><br><br>
  跟踪信息：<a href="jsp/refer/addFollow.jsp" class="input">添加跟踪</a><br><br>
+ <input type="button" value="返回" onclick="javaScript:history.go(-1)">
   </center>
   
   </div>

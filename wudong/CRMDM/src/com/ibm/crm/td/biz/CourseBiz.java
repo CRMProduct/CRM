@@ -1,6 +1,7 @@
 package com.ibm.crm.td.biz;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,9 +26,9 @@ public class CourseBiz implements ICourseBiz {
 	}
 
 	@Override
-	public PageBean queryByPage(int pageCode, int pageSize) {
+	public PageBean queryByPage(int pageCode, int pageSize, Map map) {
 		// TODO Auto-generated method stub
-		return courseDao.findByPage(pageCode, pageSize);
+		return courseDao.findByPage(pageCode, pageSize, map);
 	}
 
 	// 根据ID查询课程类别

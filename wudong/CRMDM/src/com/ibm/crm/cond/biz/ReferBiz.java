@@ -1,5 +1,7 @@
 package com.ibm.crm.cond.biz;
 
+import java.util.Map;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ibm.crm.base.PageBean;
@@ -14,9 +16,9 @@ public class ReferBiz implements IReferBiz {
 	}
 
 	@Override
-	public PageBean queryByPage(int pageCode, int pageSize) {
+	public PageBean queryByPage(int pageCode, int pageSize, Map map) {
 		// TODO Auto-generated method stub
-		return referDao.findByPage(pageCode, pageSize);
+		return referDao.findByPage(pageCode, pageSize, map);
 	}
 
 	@Override

@@ -33,7 +33,7 @@ public class DeptAction extends ActionSupport implements ModelDriven<Crmdepartme
 	}
 
 	//页码
-	private int pageCode;
+	private int pageCode = 1;
 	public int getPageCode() {
 		return pageCode;
 	}
@@ -57,6 +57,10 @@ public class DeptAction extends ActionSupport implements ModelDriven<Crmdepartme
 		return "registDeptError";
 	}
 
+	//登录
+	public String login() throws Exception {
+		return "loginSuccess";
+	}
 	
 	//根据ID查询部门
 	public String find() throws Exception {

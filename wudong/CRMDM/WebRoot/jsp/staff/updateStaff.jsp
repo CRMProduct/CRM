@@ -98,8 +98,8 @@
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;员&nbsp;工&nbsp;管&nbsp;理</h3>
 		</div>
 		<div style="position: relative; bottom: 0px;left: 80%">
-			<input type="submit" value="保存"> <a href="Staff_query"><input
-				type="button" value="退回"></a>
+			<input type="submit" value="保存"> 
+			<input type="button" value="返回" onclick="javaScript:history.go(-1)"></a>
 		</div>
 		<div style="margin-top: 30px">
 			<center>
@@ -122,8 +122,8 @@
 						<option value="${dep.depId }">${dep.depName }</option>
 						</c:forEach>
 						</select>
-						职&emsp;务&emsp;：<select name="postId" id="selectPost" onchange="cChange()" style="width: 50px>
-								<option value="${staff.crmpost.postId }"> ${ taff.crmpost.postName}</option>
+						职&emsp;务&emsp;：<select name="postId" id="selectPost" onchange="cChange()" style="width: 80px">
+								<option value="${staff.crmpost.postId }"> ${ staff.crmpost.postName}</option>
 								<c:forEach var="post" items="${post }">
 						<option value="${post.postId }">${post.postName }</option>
 						</c:forEach>

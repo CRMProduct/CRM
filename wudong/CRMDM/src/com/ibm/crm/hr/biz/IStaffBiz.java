@@ -10,12 +10,14 @@ public interface IStaffBiz {
 	//分页
 	public PageBean queryByPage(int pageCode, int pageSize, Map map);
 	//添加员工
-	public Crmstaff regist(Crmstaff crmStaff);
+	public boolean regist(Crmstaff crmStaff);
 
 	//编辑员工
 	public boolean modifyStaff(Crmstaff crmStaff);
 
 	//根据id查找员工
 	public Crmstaff searchById(int staffId);
+	
 	public Crmstaff check(String loginName,String loginPwd);
+	
 }

@@ -35,6 +35,5 @@ public class ClassBiz implements IClassBiz {
 		// TODO Auto-generated method stub
 		return classDao.findByPage(pageCode, pageSize);
 	}
-	
 
 }

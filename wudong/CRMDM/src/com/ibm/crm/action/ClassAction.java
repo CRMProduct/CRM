@@ -83,7 +83,13 @@ public class ClassAction extends ActionSupport implements ModelDriven<Crmclass>,
 		request.put("crmclass", crmclass1);
 		request.put("course", list);
 		return "findClassSuccess";
+	}
+	
 
+	public String find() throws Exception {
+		Crmclass findClass = classBiz.queryClass(crmclass.getClassId());
+		request.put("crmclass", findClass);
+		return "findSuccess";
 	}
 
 	public String updateClass() throws Exception {
@@ -96,6 +102,7 @@ public class ClassAction extends ActionSupport implements ModelDriven<Crmclass>,
 		}
 
 	}
+	
 
 	// 分页
 	public String queryClass() throws Exception {

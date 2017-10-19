@@ -17,11 +17,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	
+	<link rel="stylesheet" type="text/css" href="css/search.css">
+	
 
-  <body>
+  <body><br>
   <form action="Staff_search">
   部门名称：<input type="text" name="depName" value="${depName }">
   职务：<input type="text" name="postName" value="${postName }">
@@ -32,12 +32,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <h3 style=" background-color: #93C9FF; color: white;height: 30px;width: 80%px;position: relative;top: 30px"> 
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;部&nbsp;门&nbsp;管&nbsp;理</h3>
   </div>
- <div style="position: relative; bottom: 16px;left: 800px">
- <a href="jsp/regist.jsp"><input type="button" value="添加部门"></a></div>
+ <div style="position: relative;left: 80%">
+ <a href="jsp/regist.jsp">添加</a>
+ <a href="Staff_query">退回</a>
+ </div><br>
   <center>
   <h4 align="left" style="position:relative;left: 100px;color: orange ">查询结果</h4>
    <table width="80%" border="1px" >
-    <tr height="50px"><th width="50%">员工姓名</th><th width="50%">性别</th><th width="50%">入职时间</th><th width="50%">所属部门</th><th width="50%">职务</th><th width="50%">编辑</th></tr>
+    <tr height="30px"><th width="20%">员工姓名</th><th width="20%">性别</th><th width="10%">入职时间</th><th width="30%">所属部门</th><th width="10%">职务</th><th width="10%">编辑</th></tr>
    <c:forEach var="staff" items="${pageBean.list }">
     <tr align="center">
      <td>${staff.staffName }</td>
@@ -45,11 +47,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <td>${staff.onDutyDate }</td>
      <td>${staff.crmpost.crmdepartment.depName }</td>
      <td>${staff.crmpost.postName }</td>
-     <td><a href="Dept_find?depId=${dept.depId }&pageCode=${pageBean.pageCode }" style="text-decoration: none;">img</a></td>
+     <td><a href="Dept_find?depId=${dept.depId }&pageCode=${pageBean.pageCode }" ><img src="imgs/bianji.png" style="text-decoration: none;"></a></td>
     </tr>
    </c:forEach>
     <tr>
-     <td>
+     <td align="right" colspan="3">
      <c:if test="${pageBean.pageCode>1 }">
      <a href="Dept_query?pageCode=${pageBean.pageCode-1 }" style="text-decoration: none;">上一页</a>
      </c:if>
@@ -61,13 +63,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      </c:if>
      <a href="Dept_query?pageCode=${pageBean.allPages }" style="text-decoration: none;">末页</a>
      </td>
-     <td style="position: relative;top: 10px">
+     <td >
        <form action="Dept_query">
           <input type="text" name="pageCode" size="1">
           <input type="submit" value="go">
         </form>
      </td>
-     <td>
+     <td colspan="2">
               共${pageBean.allPages }页
      </td>
     </tr>

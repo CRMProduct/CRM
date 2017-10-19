@@ -1,8 +1,10 @@
 package com.ibm.crm.hr.dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
@@ -15,9 +17,13 @@ public class StaffDao extends GenericHibernateDao<Crmstaff, Integer> implements 
 
 	
 	@Override
-	public Crmstaff add(Crmstaff crmStaff) {
+	public boolean add(Crmstaff crmStaff) {
 		// TODO Auto-generated method stub
-		return super.create(crmStaff);
+		boolean flag = false;
+		if(super.create(crmStaff) != null){
+			flag = true;
+		}
+		return flag;
 	}
 
 	@Override
@@ -42,27 +48,28 @@ public class StaffDao extends GenericHibernateDao<Crmstaff, Integer> implements 
 		PageBean pb = null;
 		String hql = "select s from Crmstaff as s where 1=1";
 		Object params[] = new Object[]{};
-		/*if(map != null && map.size() > 0){
+		if(map != null && map.size() > 0){
+			hql = "select s from Crmstaff as s,Crmpost as p,Crmdepartment as d where 1=1 and s.crmpost=p and p.crmdepartment=d ";
 			List<Object> list = new ArrayList<Object>();
 			Set<String> set = map.keySet();
 			Iterator<String> iter = set.iterator();
 			while(iter.hasNext()){
 				String key = iter.next();
 				if("depName".equals(key)){
-					hql += "or s.studentName like ?";
+					hql += "and d.depName like ?";
 					list.add("%"+map.get(key)+"%");
 				}
 				if("postName".equals(key)){
-					hql += "or s.telephone like ?";
+					hql += "and p.postName like ?";
 					list.add("%"+map.get(key)+"%");
 				}
 				if("staffName".equals(key)){
-					hql += "or s.qq like ?";
+					hql += "and s.staffName like ?";
 					list.add("%"+map.get(key)+"%");
 				}
 			}
 			params = list.toArray();
-		}*/
+		}
 		pb = super.findByPage(hql, pageCode, pageSize, params);
 
 		return pb;
@@ -81,5 +88,4 @@ public class StaffDao extends GenericHibernateDao<Crmstaff, Integer> implements 
 		return crmstaff;
 
 	}
-
 }

@@ -11,4 +11,5 @@ public interface IClassBiz {
 	public Crmclass queryClass(int classId);
 
 	public boolean modifyClass(Crmclass crmclass);
+	
 }

@@ -27,8 +27,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <h3 style=" background-color: #93C9FF; color: white;height: 30px;width: 80%px;position: relative;top: 30px"> 
   &emsp;&emsp;&emsp;&emsp;&emsp;在&nbsp;校&nbsp;学&nbsp;生&nbsp;管&nbsp;理</h3>
   </div><br>
- <div style="position: relative; bottom: 16px;left: 800px">
- <a href="jsp/student/regist.jsp" style="text-decoration: none;">添加</a></div>
+ <div style="position: relative; bottom: 16px;left: 80%">
+ <a href="jsp/student/regist.jsp" style="text-decoration: none;">添加</a>
+ <a href="jsp/home.jsp" style="text-decoration: none;">返回</a>
+ </div>
   <center>
   <h4 align="left" style="position:relative;left: 100px;color: orange ">查询结果</h4><br>
    <table width="80%" border="1px" bordercolor="#999999;" >
@@ -42,10 +44,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <td>${stu.telephone }</td>
      <td>${stu.mustTuition }/${stu.actualTuition }</td>
      <td>${stu.studentStatus }</td>
-     <td><a href="Student_find?studentId=${stu.studentId }&pageCode=${pageBean.pageCode }"><img src="imgs/bianji.png" border="none"/></a></td>
-     <td>升级/转班</td>
-     <td><img src="imgs/chakan.png" border="none"/></td>
-     <td>流失</td>
+     <td><a href="Student_find1?studentId=${stu.studentId }&pageCode=${pageBean.pageCode }"><img src="imgs/bianji.png" border="none"/></a></td>
+     <td><a href="Student_find2?studentId=${stu.studentId }">升级/转班</a></td>
+     <td><a href="Student_find3?studentId=${stu.studentId }"><img src="imgs/chakan.png" border="none"/></a></td>
+     <td><a href="Student_find4?studentId=${stu.studentId }">流失</a></td>
     </tr>
    </c:forEach>
     <tr>

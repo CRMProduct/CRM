@@ -23,6 +23,7 @@
 				<prop key="hibernate.dialect">
 					org.hibernate.dialect.MySQLDialect
 				</prop>
+				<prop key="show_sql">true</prop>
 			</props>
 		</property>
 		<property name="mappingResources">
@@ -61,8 +62,6 @@
 	</bean>
 	<bean id="postAction" class="com.ibm.crm.action.PostAction">
 		<property name="postBiz" ref="postBiz"></property>
-	</bean>
-	<bean id="postAction1" class="com.ibm.crm.action.PostAction">
 		<property name="deptBiz" ref="deptBiz"></property>
 	</bean>
 	<bean id="staffDao" class="com.ibm.crm.hr.dao.StaffDao">
@@ -110,10 +109,33 @@
 	<bean id="studentDao" class="com.ibm.crm.stu.dao.StudentDao">
 	    <property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="stationDao" class="com.ibm.crm.stu.dao.StationDao">
+	    <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="runOffDao" class="com.ibm.crm.stu.dao.RunOffDao">
+	    <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<bean id="studentBiz" class="com.ibm.crm.stu.biz.StudentBiz">
 	    <property name="studentDao" ref="studentDao"></property>
 	</bean>
+	<bean id="stationBiz" class="com.ibm.crm.stu.biz.StationBiz">
+	    <property name="stationDao" ref="stationDao"></property>
+	</bean>
+	<bean id="runOffBiz" class="com.ibm.crm.stu.biz.RunOffBiz">
+	    <property name="runOffDao" ref="runOffDao"></property>
+	</bean>
 	<bean id="studentAction" class="com.ibm.crm.action.StudentAction">
+	    <property name="studentBiz" ref="studentBiz"></property>
+	    <property name="classBiz" ref="classBiz"></property>
+	    <property name="referBiz" ref="referBiz"></property>
+	    <property name="stationBiz" ref="stationBiz"></property>
+	</bean>
+	<bean id="stationAction" class="com.ibm.crm.action.StationAction">
+	    <property name="classBiz" ref="classBiz"></property>
+	    <property name="stationBiz" ref="stationBiz"></property>
+	</bean>
+	<bean id="runOffAction" class="com.ibm.crm.action.RunOffAction">
+	    <property name="runOffBiz" ref="runOffBiz"></property>
 	    <property name="studentBiz" ref="studentBiz"></property>
 	</bean>
 	<!-- 就业部 -->
@@ -128,4 +150,10 @@
 		<property name="studentBiz" ref="studentBiz"></property>
 		<property name="classBiz" ref="classBiz"></property>
 	</bean>
+	
+	<bean id="selectAction" class="com.ibm.crm.action.SelectAction">
+		<property name="deptBiz" ref="deptBiz"></property>
+		<property name="postBiz" ref="postBiz"></property>
+	</bean>
+	
 	<tx:annotation-driven transaction-manager="transactionManager" /></beans>

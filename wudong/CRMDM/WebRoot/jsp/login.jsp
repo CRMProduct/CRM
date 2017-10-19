@@ -24,12 +24,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <body>
   <center>
   <img src="imgs/zhu.png"><br><br>
-  <div style="background-color: pink; width: 300px;position: relative;left: 300px;bottom: 350px">
+  <div style="background-color: #999999; width: 300px;position: relative;left: 300px;bottom: 350px">
      <br>
      <h3>欢迎使用CRM系统</h3>
         <form action="Staff_login" method="post">
                     用户名：<input type="text" name="loginName"><br><br>
-                    密&emsp;码：<input type="text" name="loginPwd"><br><br>
+                    密&emsp;码：<input type="password" name="loginPwd"><br><br>
               <input type="submit" value="登录" style="background-color: white;color: red">
               <input type="reset" value="重置" style="background-color: white;color: red">
         </form>

@@ -24,12 +24,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div><h3 style=" background-color: #93C9FF; color: white;height: 30px;width: 80%px;position: relative;top: 30px"> 
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[录&nbsp;入&nbsp;学&nbsp;籍]</h3></div><br> 
   <div style="position: relative; top:5%; background: #ABD1E7;height: 60%"><br>
-  <form action="" method="post">
+  <form action="Student_acquire" method="post">
   <center>
  姓&emsp;名：<input type="text" name="studentName" value="${refer.studentName }" class="input"><br><br>
  电&emsp;话：<input type="text" name="telephone" value="${refer.telephone }" class="input"><br><br>
- Q&nbsp;&nbsp;Q&emsp;：<input type="text" name="QQ" value="${refer.QQ }" class="input"><br><br>
- 身份证：<input type="text" name="" value="" class="input"><br><br>
+ Q&nbsp;&nbsp;Q&emsp;：<input type="text" name="qq" value="${refer.qq }" class="input"><br><br>
+ 身份证：<input type="text" name="identity"  class="input"><br><br>
  
   <input type="submit" value="提交" style="background-color: orange;color: white">
   &emsp;

@@ -1,8 +1,10 @@
 package com.ibm.crm.hr.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.ibm.crm.base.Address;
 import com.ibm.crm.base.GenericHibernateDao;
 import com.ibm.crm.base.PageBean;
 import com.ibm.crm.pojo.Crmpost;
@@ -47,10 +49,15 @@ public class PostDao extends GenericHibernateDao<Crmpost, Integer> implements IP
 		}
 		return flag;
 	}
-	//查询所有post
-		@Override
-		public List<Crmpost> findAllPost() {
-			// TODO Auto-generated method stub
-			return super.findAll();
+	
+	//根据部门id查post信息
+		public List<Crmpost> findByDeptId(int depId){
+			ArrayList<Address> addrList = new ArrayList<Address>();
+			String hql = "select p from Crmpost p,Crmdepartment as d where 1=1 and p.crmdepartment=d and d.depId = " + depId;
+			Object[] params = new Object[]{};
+			List<Crmpost> list = super.findByHQL(hql, params);
+			
+			return list;
 		}
+
 }

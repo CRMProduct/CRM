@@ -19,7 +19,6 @@ public interface IPostDao {
 
 	//添加
 	public boolean addPost(Crmpost crmpost);
-	// 查询所有部门信息
-		public List<Crmpost> findAllPost();
-		
+	
+	public List<Crmpost> findByDeptId(int depId);
 }

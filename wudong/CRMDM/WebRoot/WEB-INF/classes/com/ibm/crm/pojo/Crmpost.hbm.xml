@@ -10,7 +10,7 @@
             <column name="postId" />
             <generator class="native" />
         </id>
-        <many-to-one name="crmdepartment" class="com.ibm.crm.pojo.Crmdepartment" fetch="select" lazy="false">
+        <many-to-one name="crmdepartment" class="com.ibm.crm.pojo.Crmdepartment" fetch="join" lazy="false">
             <column name="depId" />
         </many-to-one>
         <property name="postName" type="java.lang.String">

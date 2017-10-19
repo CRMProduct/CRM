@@ -10,7 +10,7 @@
             <column name="staffId" />
             <generator class="native" />
         </id>
-        <many-to-one name="crmpost" class="com.ibm.crm.pojo.Crmpost" fetch="select" lazy="false">
+        <many-to-one name="crmpost" class="com.ibm.crm.pojo.Crmpost" fetch="join" lazy="false">
             <column name="postId" />
         </many-to-one>
         <property name="loginName" type="java.lang.String">

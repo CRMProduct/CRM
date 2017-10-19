@@ -47,11 +47,11 @@ public class PostBiz implements IPostBiz {
 		return postDao.addPost(crmpost);
 
 	}
-	//查询所有post
+	
 	@Override
-	public List<Crmpost> searchAllPost() {
+	public List<Crmpost> findByDeptId(int depId) {
 		// TODO Auto-generated method stub
-		return postDao.findAllPost();
+		return postDao.findByDeptId(depId);
 	}
 
 }

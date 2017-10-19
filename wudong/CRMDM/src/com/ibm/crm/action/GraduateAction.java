@@ -69,10 +69,10 @@ public class GraduateAction implements ModelDriven<Crmgraduate>,RequestAware {
 		this.graduateBiz = graduateBiz;
 	}
 
-/*	//添加就业信息
+	//添加就业信息
 	public String addGraduate() throws Exception {
-		Crmclass cc = classBiz.findByClassId(classId);
-		Crmstudent ct = studentBiz.findByStudentId(studentId);
+		Crmclass cc = classBiz.queryClass(classId);
+		Crmstudent ct = studentBiz.queryById(studentId);
 		System.out.println(classId+" "+studentId);
 		crmGraduate.setCrmclass(cc);
 		crmGraduate.setCrmstudent(ct);
@@ -81,7 +81,7 @@ public class GraduateAction implements ModelDriven<Crmgraduate>,RequestAware {
 		} else{
 			return "addGraduateError";
 		}
-	}*/
+	}
 
 	//就业信息分页
 	public String queryGraduate() throws Exception {

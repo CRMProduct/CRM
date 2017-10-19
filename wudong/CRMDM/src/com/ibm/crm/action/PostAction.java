@@ -1,5 +1,7 @@
 package com.ibm.crm.action;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +16,7 @@ import com.ibm.crm.pojo.Crmpost;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class PostAction extends ActionSupport implements RequestAware,ModelDriven<Crmpost>{
+public class PostAction implements RequestAware,ModelDriven<Crmpost>{
 
 	Map<String, Object> request;
 	Crmpost crmPost = new Crmpost();
@@ -103,7 +105,7 @@ public class PostAction extends ActionSupport implements RequestAware,ModelDrive
 		if(postBiz.updatePost(crmPost)){
 			return"updatePostSuccess";
 		}else{
-			return"updatePostSError";
+			return"updatePostError";
 		}
 
 	}

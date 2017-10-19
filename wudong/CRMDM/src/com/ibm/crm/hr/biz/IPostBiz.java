@@ -19,6 +19,6 @@ public interface IPostBiz {
 
 	//添加
 	public boolean registPost(Crmpost crmpost);
-	// 查询所有职务信息
-		public List<Crmpost> searchAllPost();
+	
+	public List<Crmpost> findByDeptId(int depId);
 }

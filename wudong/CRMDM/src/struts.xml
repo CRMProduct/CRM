@@ -3,7 +3,7 @@
 <struts>
 	<package name="dept" namespace="/" extends="struts-default">
 		<action name="*_*" class="com.ibm.crm.action.{1}Action" method="{2}">
-			<!-- 管理员登录 -->
+			<!-- 登录 -->
 			<result name="loginSuccess">/jsp/home.jsp</result>
 			<result name="loginError">/jsp/login.jsp</result>
 			<!-- 分页 -->
@@ -27,8 +27,21 @@
 			<!-- 职务更新 -->
 			<result name="updatePostSuccess" type="chain">Post_query</result>
 
+			<!-- 添加员工 -->
+			<result name="addStaffSuccess" type="chain">Staff_all</result>
+			<!-- 查询所有职务 -->
+			<result name="findAllPostSuccess">/jsp/staff/addStaff.jsp</result>
+			<!-- 员工分页 -->
+			<result name="queryStaffSuccess">/jsp/staff/staffPage.jsp</result>
+			<result name="searchStaffSuccess">/jsp/staff/search.jsp</result>
+			<!-- 查询 -->
+			<result name="findStaffSuccess">jsp/staff/updateStaff.jsp</result>
+			<!-- 更新 -->
+			<result name="updateStaffSuccess" type="chain">Staff_query</result>
+
 			<!-- 课程分页 -->
 			<result name="queryCourseSuccess">/jsp/course/coursePage.jsp</result>
+			<result name="searchCourseSuccess">/jsp/course/searchCourse.jsp</result>
 			<!-- 添加课程 -->
 			<result name="addCourseSuccess" type="chain">Course_queryCourse
 			</result>
@@ -44,40 +57,57 @@
 			<result name="addClassSuccess" type="chain">Class_queryClass</result>
 			<!-- 查询班级 -->
 			<result name="findClassSuccess">/jsp/class/updateClass.jsp</result>
+			<result name="findSuccess">/jsp/class/queryClass.jsp</result>
 			<!-- 更新班级 -->
 			<result name="updateClassSuccess" type="chain">Class_queryClass
 			</result>
 
-            <!-- 咨询分页 -->
+			<!-- 咨询分页 -->
 			<result name="queryReferSuccess">jsp/refer/referPage.jsp </result>
+			<result name="searchReferSuccess">jsp/refer/searchRefer.jsp </result>
 			<!-- 查询咨询学生 -->
 			<result name="findReferStudent1Success">jsp/refer/queryReferStudent.jsp</result>
 			<result name="findReferStudent2Success">jsp/refer/updateReferStudent.jsp</result>
+			<result name="findReferSuccess">jsp/refer/addSchoolRoll.jsp</result>
 			<!-- 更新咨询学生信息 -->
-			<result name="updateReferStudentSuccess" type="chain">Refer_queryRefer</result>
-			
+			<result name="updateReferStudentSuccess" type="chain">Refer_queryRefer
+			</result>
+
 			<!-- 学生的分页 -->
 			<result name="queryStudentSuccess">/jsp/student/studentPage.jsp</result>
+			<result name="queryStationSuccess">/jsp/station/stationPage.jsp</result>
+			<result name="queryRunOffSuccess">/jsp/runOff/runOffPage.jsp</result>
 			<!-- 注册学生 -->
-			<result name="registStudentSuccess" type="chain">Student_query</result>
-			<result name="registStudentError" type="redirect">/jsp/student/regist.jsp</result>
+			<result name="acquireSuccess">/jsp/student/regist.jsp</result>
+			<result name="registStudentSuccess" type="chain">Student_query
+			</result>
+			<result name="registStudentError" type="redirect">/jsp/student/regist.jsp
+			</result>
 			<!-- 查询学生 -->
-			<result name="findStudentSuccess">/jsp/student/update.jsp</result>
+			<result name="find1StudentSuccess">/jsp/student/update.jsp</result>
+			<result name="find2StudentSuccess">/jsp/student/change.jsp</result>
+			<result name="find3StudentSuccess">/jsp/student/result.jsp</result>
+			<result name="find4StudentSuccess">/jsp/student/runoff.jsp</result>
 			<!-- 更新学生信息 -->
-			<result name="updateStudentSuccess" type="chain">Student_query</result>
+			<result name="updateStudentSuccess" type="chain">Student_query
+			</result>
 			<result name="updateStudentError">/jsp/student/update.jsp</result>
-			
+			<!-- 升级/转班 -->
+			<result name="changeSuccess" type="chain">Student_query</result>
+			<!-- 流失增加 -->
+			<result name="addRunOffSuccess" type="chain">RunOff_query</result>
+
 			<!-- 就业信息分页 -->
 			<result name="queryGraduateSuccess">jsp/graduate/graduatePage.jsp</result>
 			<!-- 添加就业信息 -->
-			<result name="addGraduateSuccess" type="chain">Graduate_queryGraduate</result>
-		    <!--员工信息分页 -->
-			<result name="queryStaffSuccess">jsp/staff/staffPage.jsp</result>
-			<!-- 查询 -->
-			<result name="findStaffSuccess">jsp/staff/updateStaff.jsp</result>
-			<!-- 更新 -->
-			<result name="updateStaffSuccess" type="chain">Staff_query</result>
+			<result name="addGraduateSuccess" type="chain">Graduate_queryGraduate
+			</result>
 		</action>
+
+
+		<action name="Select_me" class="com.ibm.crm.action.SelectAction" method="me">  
+         </action>
+		
 	</package>
 
 </struts>    

@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	
-	
+	<link rel="stylesheet" type="text/css" href="css/change.css">
 	
 
   <body>
@@ -27,11 +27,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <h3 style=" background-color: #93C9FF; color: white;height: 30px;width: 80%px;position: relative;top: 30px"> 
   &emsp;&emsp;&emsp;&emsp;&emsp;就&nbsp;业&nbsp;情&nbsp;况</h3>
   </div>
- <div style="position: relative; bottom: 16px;left: 800px">
- <a href="jsp/graduate/addGraduate.jsp" style="text-decoration: none;">添加</a></div>
+ <div style="position: relative;left: 80%">
+ <a href="jsp/graduate/addGraduate.jsp" style="text-decoration: none;">添加</a>
+ <a href="jsp/home.jsp" style="text-decoration: none;">返回</a>
+ </div><br>
   <center>
   <h4 align="left" style="position:relative;left: 100px;color: orange ">查询结果</h4>
-   <table width="80%" border="1px" bordercolor="#999999;">
+   <br><table width="80%" border="1px" bordercolor="#999999;">
     <tr height="50px">
     	<th width="10%">学生姓名</th>
     	<th width="10%">就读班级</th>

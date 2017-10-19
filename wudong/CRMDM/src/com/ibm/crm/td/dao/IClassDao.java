@@ -12,4 +12,6 @@ public interface IClassDao extends GenericDao<Crmclass, Integer> {
 	public Crmclass findClass(int classId);
 
 	public boolean updateClass(Crmclass crmclass);
+	
+	public int findclassId(String className);
 }

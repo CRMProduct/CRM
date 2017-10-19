@@ -1,0 +1,51 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.input{
+	width: 250px;
+}
+td{
+	height: 40px;
+}
+
+/* a {
+	text-decoration: none;
+	font-size: 12px;
+}
+.wrap{
+	width: 960px;
+	height: 800px;
+	margin: 0 auto;
+	padding-top: 20px;
+	text-align:center;
+	font-size: 18px;
+	background: #dcddc0;
+}
+
+.formj {
+	width: 350px;
+	margin:0 auto;
+	text-align: left;
+}
+
+.formj img {
+	vertical-align: middle;
+}
+
+input{
+	text-align: center;
+	font-size: 14px;
+}
+
+.bnt{
+	font-size: 16px;
+	border: none;
+	background: #999;
+}
+
+span {
+	font-size: 14px;
+	color: #999999;
+}
+ */

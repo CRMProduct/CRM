@@ -19,7 +19,8 @@ import com.ibm.crm.pojo.Crmstaff;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class StaffAction implements ModelDriven<Crmstaff>, RequestAware {
+
+public class StaffAction implements ModelDriven<Crmstaff>,RequestAware {
 
 	Crmstaff crmStaff = new Crmstaff();
 	IStaffBiz staffBiz;
@@ -27,16 +28,6 @@ public class StaffAction implements ModelDriven<Crmstaff>, RequestAware {
 	IDeptBiz deptBiz;
 	int depId;
 	int postId;
-	int pageCode = 1;
-
-
-	public int getPageCode() {
-		return pageCode;
-	}
-
-	public void setPageCode(int pageCode) {
-		this.pageCode = pageCode;
-	}
 	public int getDepId() {
 		return depId;
 	}
@@ -68,34 +59,44 @@ public class StaffAction implements ModelDriven<Crmstaff>, RequestAware {
 	public void setStaffBiz(IStaffBiz staffBiz) {
 		this.staffBiz = staffBiz;
 	}
-	Map<String,Object> session;
+
 	Map<String,Object> request;
+	Map<String,Object> session;
 
-
-
+	public String login() throws Exception {
+		Crmstaff crmstaff = staffBiz.check(crmStaff.getLoginName(), crmStaff.getLoginPwd());
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm a");
+		String systemTime = sdf.format(date);
+		if (crmstaff != null) {
+			session = ActionContext.getContext().getSession();
+			session.put("staffName", crmstaff.getStaffName());
+			session.put("systemTime", systemTime);
+			return "loginSuccess";
+		} else {
+			return "loginError";
+		}
+	}
+	
 
 	//查询所有职务
-	public String all() throws Exception {
+	/*public String all() throws Exception {
 		// TODO Auto-generated method stub
 		List<Crmpost> postList = postBiz.searchAllPost();
 		List<Crmdepartment> deptList = deptBiz.findAllDept();
 		request.put("dept", deptList);
 		request.put("post", postList);
-		
-			return "findAllPostSuccess";
-		
-		
+		return "findAllPostSuccess";
 	}
-
+*/
 	//添加员工
 	public String addStaff() throws Exception {
 		Crmdepartment cd = deptBiz.findById(depId);
 		Crmpost cp = postBiz.checkById(postId);
-		cp.setCrmdepartment(cd);
-		System.out.println(crmStaff.getLoginName());
+		System.out.println(cd.getDepName());
+		crmStaff.getCrmpost().setCrmdepartment(cd);
 		crmStaff.setCrmpost(cp);
-		System.out.println(crmStaff.getStaffId());
-		if (staffBiz.regist(crmStaff) != null) {
+		if (staffBiz.regist(crmStaff)) {
 			return "addStaffSuccess";
 		} else{
 			return "addPostError";
@@ -114,75 +115,77 @@ public class StaffAction implements ModelDriven<Crmstaff>, RequestAware {
 		// TODO Auto-generated method stub
 		return crmStaff;
 	}
+	
+	private int pageCode = 1;
+	public int getPageCode() {
+		return pageCode;
+	}
+	public void setPageCode(int pageCode) {
+		this.pageCode = pageCode;
+	}
 
-	//职务分页
 	public String query() throws Exception {
 		// TODO Auto-generated method stub
-		Map map = (Map) request.get("param");
-		PageBean pb = staffBiz.queryByPage(pageCode, ApplicationContext.pageSize, map);
-
-		/*List<Crmpost> s = pb.getList();
-			List<Crmpost> sNew = new ArrayList<Crmpost>();
-			Iterator<Crmpost> iter = s.iterator();
-
-			while(iter.hasNext()){
-
-				Crmpost cp = iter.next();
-				Crmdepartment cd = cp.getCrmdepartment();
-				Crmdepartment cNew = deptBiz.findById(cd.getDepId());
-				cp.setCrmdepartment(cNew);
-				sNew.add(cp);
-
-			}
-			pb.setList(sNew);*/
-		request.put("pageBean", pb);
-		return "queryStaffSuccess";
+        Map map = (Map)request.get("params");
+        PageBean pb = staffBiz.queryByPage(pageCode, ApplicationContext.pageSize, map);
+      /*  List<Crmstaff> list = pb.getList();
+        List<Crmstaff> staff = new ArrayList<Crmstaff>();
+        Iterator<Crmstaff> iter = list.iterator();
+        while(iter.hasNext()){
+        	Crmstaff s = iter.next();
+        	int postId = s.getCrmpost().getPostId();
+        	Crmpost p = postBiz.checkById(postId);
+        	s.setCrmpost(p);
+        	int depId = p.getCrmdepartment().getDepId();
+        	Crmdepartment deptment = deptBiz.findById(depId);
+        	p.setCrmdepartment(deptment);
+        	staff.add(s);
+        }
+        pb.setList(staff);*/
+        request.put("pageBean", pb);
+        return "queryStaffSuccess";
 	}
-
-	//更新
-		public String update() throws Exception {
-			Crmdepartment cd = deptBiz.findById(depId);
-			Crmpost cp = postBiz.checkById(postId);
-			/*cp.setCrmdepartment(cd);*/
-			crmStaff.setCrmpost(cp);
-			if(staffBiz.modifyStaff(crmStaff)){
-				return"updateStaffSuccess";
-			}else{
-				return"updateError";
-			}
-
-		}
-
-	//查询职务
-	public String find() throws Exception {
+	
+	String depName;
+	String postName;
+	public void setDepName(String depName) {
+		this.depName = depName;
+	}
+	public void setPostName(String postName) {
+		this.postName = postName;
+	}
+	
+	public String search() throws Exception {
 		// TODO Auto-generated method stub
-		Crmstaff cs = staffBiz.searchById(crmStaff.getStaffId());
-		Crmpost cp = postBiz.checkById(cs.getCrmpost().getPostId());
-		Crmdepartment cd = deptBiz.findById(cp.getCrmdepartment().getDepId());
-		cp.setCrmdepartment(cd);
-		cs.setCrmpost(cp);
-		request.put("staff", cs);
-		
-		List<Crmpost> postList = postBiz.searchAllPost();
-		List<Crmdepartment> deptList = deptBiz.findAllDept();
-		request.put("dept", deptList);
-		request.put("post", postList);
+		Map<String, Object> map = new HashMap<String, Object>();
+		if(depName != "" && depName.length() > 0){
+			map.put("depName", depName);
+		}
+		if(postName != "" && postName.length() > 0){
+			map.put("postName", postName);
+		}
+		if(crmStaff.getStaffName() != "" && crmStaff.getStaffName().length() > 0){
+			map.put("staffName", crmStaff.getStaffName());
+		}
+		PageBean pb = staffBiz.queryByPage(pageCode, ApplicationContext.pageSize, map);
+		request.put("depName", depName);
+		request.put("postName", postName);	
+		request.put("staffName", crmStaff.getStaffName());
+		request.put("pageBean", pb);
+		return "searchStaffSuccess";
+	}
+	
+	
+	public String find() throws Exception {
+		crmStaff = staffBiz.searchById(crmStaff.getStaffId());
+		Crmpost findCrmpost = postBiz.checkById(crmStaff.getCrmpost().getPostId());
+		Crmdepartment cp = deptBiz.findById(findCrmpost.getCrmdepartment().getDepId());
+		findCrmpost.setCrmdepartment(cp);
+		crmStaff.setCrmpost(findCrmpost);
+		request.put("staff", crmStaff);
 		return "findStaffSuccess";
 
-	}
-	public String login() throws Exception {
-		Crmstaff crmstaff = staffBiz.check(crmStaff.getLoginName(), crmStaff.getLoginPwd());
-		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm a");
-		String systemTime = sdf.format(date);
-		if (crmstaff != null) {
-			session = ActionContext.getContext().getSession();
-			session.put("loginName", crmStaff.getLoginName());
-			request.put("systemTime", systemTime);
-			return "loginSuccess";
-		} else {
-			return "loginError";
-		}
+
 	}
 
 }

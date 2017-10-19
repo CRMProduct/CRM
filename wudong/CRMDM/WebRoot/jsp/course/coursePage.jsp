@@ -28,20 +28,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <h3 style="background-color: #93C9FF; color: white;height: 30px;width: 80%px;position: relative;top: 30px"> 
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;课&nbsp;程&nbsp;类&nbsp;别</h3>
   </div>
- <div style="position: relative;left: 800px;top: 5px">
- <a href="jsp/course/addCourse.jsp" style="text-decoration: none;">添加</a></div>
+ <div style="position: relative;left: 80%;top: 5px">
+ <a href="jsp/course/addCourse.jsp" style="text-decoration: none;">添加</a>
+ <a href="jsp/home.jsp" style="text-decoration: none;">返回</a>
+ </div>
  <center>
  <br>
+ <form action="Course_search" method="post">
  课程类别：<input type="text"name="courseName" class="input"><br><br>
  课程简介：<input type="text"name="remark"  class="input"><br><br>
- 总学时&emsp;：<input type="text"name="total" class="input"><br><br>
- 课程费用：<input type="text"name="courseCost" class="input"><br><br>
+ 总学时&emsp;：<input type="text"name="total1" class="input1">-<input type="text"name="total2" class="input1"><br><br>
+ 课程费用：<input type="text"name="courseCost1" class="input1">-<input type="text"name="courseCost2" class="input1"><br><br>
+ <input type="submit" value="高级查询" class="input">
+ </form>
  </center>
  
   <center>
-  <h4 align="left" style="position:relative;left: 100px;color: orange ">查询结果</h4>
+  <h4 align="left" style="position:relative;left: 11%;color: orange ">查询结果</h4>
    <table width="80%" border="1px" bordercolor="#999999;">
-    <tr height="50px"><th width="25%">名称</th><th width="25%">简介</th><th width="25%">总学时</th><th width="20%">收费标准</th><th width="15%">编辑</th></tr>
+    <tr height="35px"><th width="20%">名称</th><th width="20%">简介</th><th width="20%">总学时</th><th width="20%">收费标准</th><th width="20%">编辑</th></tr>
    <c:forEach var="course" items="${pageBean.list }">
     <tr align="center">
      <td>${course.courseName}</td>
@@ -67,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <a href="Course_queryCourse?pageCode=${pageBean.allPages }" style="text-decoration: none;">末页</a>
      </td>
      <td colspan="1">
-       <form action="Course_queryCourse">
+       <form action="Course_queryCourse">&emsp;
           <input type="text" name="pageCode" size="1">
           <input type="submit" value="go">
         </form>
